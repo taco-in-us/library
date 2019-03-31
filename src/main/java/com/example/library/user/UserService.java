@@ -3,7 +3,6 @@ package com.example.library.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,17 +23,12 @@ public class UserService {
     return userRepository.save(user);
   }
 
-  public User modifyUser(String userId, User newUser) {
-    User oldUser = getUserById(userId);
-    oldUser.setName(newUser.getName());
-    oldUser.setPhoneNumber(newUser.getPhoneNumber());
-    return userRepository.save(oldUser);
+  public User updateUser(User user) {
+    return userRepository.save(user);
   }
 
-  public User quitUser(String userId) {
-    User user = getUserById(userId);
-    user.setQuitDateTime(LocalDateTime.now());
-    return userRepository.save(user);
+  public User deleteUser(String userId) {
+    return userRepository.delete(userId);
   }
 
 }

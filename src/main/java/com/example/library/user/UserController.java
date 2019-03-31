@@ -27,14 +27,14 @@ public class UserController {
     return userService.createUser(user);
   }
 
-  @PutMapping("/{userId}")
-  public User modifyUser(@PathVariable String userId, User newUser) {
-    return userService.modifyUser(userId, newUser);
+  @PutMapping
+  public User updateUser(User user) {
+    return userService.updateUser(user);
   }
 
   @DeleteMapping("/{userId}")
-  public User quitUser(@PathVariable String userId) {
-    return userService.quitUser(userId);
+  public User deleteUser(@PathVariable String userId) {
+    return userService.deleteUser(userId);
   }
 
 }
